@@ -5,7 +5,6 @@ body,*{
     margin: 0;
     box-sizing: border-box;
     text-align: center;
-    background-color: #1d1a17;
 }
 
 h1, *{
@@ -15,28 +14,43 @@ h1, *{
     font-family: 'Vollkorn', serif;
 }
 
+p, *{
+    font-size: 40px;
+    color: #d1d2d5;
+    margin: 5vh 0;
+    font-family: "Montserrat Alternates";
+}
+
+.background--custom {
+        background-color: #FFFFFF;
+        overflow: visible;
+        z-index: -2;
+      }
+
+canvas#canvas {
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    height: 60%;
+    transform: scale(2) translateY(0%);
+    --gradient-color-1: #1D1A17; 
+    --gradient-color-2: #24251A; 
+    --gradient-color-3: #645736;  
+    --gradient-color-4: #8F7D4C;
+    --gradient-speed: 0.000012;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
 .subheading, *{
     font-size: 90px;
     color: #d1d2d5;
     margin: 5vh 0;
-    font-family: 'Montserrat Alternates', sans-serif;
 }
-
-.card{
-    width: 22%;
-    height: 400px;
-    background-color: #beab6e;
-    margin: 20px 0;
-
-}
-
-/* 
-#d1d2d5
-#1d1a17 
-#55624c
-#beab6e
-font-family: Vollkorn, Montserrat Alternates, Droid Sans;
-*/
 
 .container{
     display: flex;
@@ -45,4 +59,29 @@ font-family: Vollkorn, Montserrat Alternates, Droid Sans;
     flex-wrap: wrap;
     background-color: #55624c;
     margin: 9vh 5vw;
+    border-radius: 12px;
 }
+
+.card{
+    width: 22%;
+    height: 400px;
+    background-color: #beab6e;
+    margin: 20px 0;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-radius: 12px;
+    border: 3px solid rgba(255, 255, 255, 0.125);
+}
+
+
+
+/* 
+#d1d2d5
+#1d1a17 
+#24251a
+#645736
+#8f7d4c
+#55624c
+#beab6e
+font-family: Vollkorn, Montserrat Alternates, Droid Sans;
+*/
