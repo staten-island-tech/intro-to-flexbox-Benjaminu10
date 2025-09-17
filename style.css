@@ -82,20 +82,40 @@ canvas#canvas {
   border: 3px solid rgb(255, 255, 255, 0.6);
 }
 
-.card-image {
+.card-title {
+  font-size: 40%;
+  color: #ffffff;
+  margin: 0;
+  font-family: "Vollkorn", serif;
 }
 
-/* @media (max-width: 900px) {
-  .card {
-    flex: 1 1 50%;
-  }
+.card-img {
+  height: 50%;
+  width: auto;
+  border-radius: 12px;
+  margin: 0;
+}
+
+.card-description {
+  font-size: 25%;
+  color: #ffffff;
+  margin: 0 5%;
+  margin-bottom: 2.5%;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+.card-price {
+  font-size: 20%;
+  color: #ffffff;
+  margin: 0;
+  font-family: "Droid Sans", sans-serif;
 }
 
 @media (max-width: 600px) {
   .card {
     flex: 1 1 100%;
   }
-} */
+}
 
 /* 
 #d1d2d5
