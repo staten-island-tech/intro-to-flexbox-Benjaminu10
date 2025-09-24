@@ -106,8 +106,11 @@ canvas#canvas {
 
 .card-price {
   font-size: 20%;
+  align-self: flex-start;
   color: #ffffff;
   margin: 0;
+  margin-left: 5%;
+  margin-top: 5%;
   font-family: "Droid Sans", sans-serif;
 }
 
@@ -115,6 +118,40 @@ canvas#canvas {
   .card {
     flex: 1 1 100%;
   }
+}
+
+.card-button {
+  align-self: flex-start;
+  height: 17%;
+  width: 40%;
+  cursor: pointer;
+  outline: 0;
+  display: inline-block;
+  font-weight: auto;
+  line-height: 1.5;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 1%;
+  margin-left: 5%;
+  margin-top: 1%;
+  font-size: 20%;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #ffffff;
+  border-color: #0d6efd;
+}
+
+.card-button:hover{
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+  }
+
+.card-button:active {
+  background-color: #0b5ed7;
+  transform: scale(0.95);
 }
 
 /* 
