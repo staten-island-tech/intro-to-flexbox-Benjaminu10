@@ -12,14 +12,20 @@ const items = [
 
 const DOMSelectors = {
   container: document.querySelector(".container"),
+  button: document.querySelector(".card-button"),
+  price: document.querySelector(".card-price"),
+  description: document.querySelector(".card-description"),
+  img: document.querySelector(".card-img"),
+  name: document.querySelector(".card-title"),
+  alt: document.querySelector(".card-alt"),
 };
 
+// create card function
 function makeCard(card) {
   DOMSelectors.container.insertAdjacentHTML(
-    "beforeend",
+    "afterbegin",
     `<div class="card">
-
-            <h2 class="card-name">${card.name}</h2>
+            <h2 class="card-title">${card.name}</h2>
             <img class="card-img" src="${card.img}" alt="${card.alt}"/>
             <p class="card-description">${card.description}</p>
             <p class="card-price">$${card.price}</p>
@@ -28,6 +34,9 @@ function makeCard(card) {
   );
 }
 
+makeCard(items[0]);
+
+// loop through array and create a card for each object
 items.forEach((card) => makeCard(card));
 
 /* function inject(album) {
