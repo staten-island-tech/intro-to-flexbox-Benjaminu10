@@ -3,7 +3,8 @@ const items = [
   {
     name: "Temporal Forces Booster Pack",
     price: 4.49,
-    description: "A single booster pack containing 10 random Temporal Forces cards.",
+    description:
+      "A single booster pack containing 10 random Temporal Forces cards.",
     img: "img/temporal-forces-booster-pack.png",
     alt: "Temporal Forces booster pack",
     inStock: true,
@@ -12,7 +13,8 @@ const items = [
   {
     name: "Temporal Forces Booster Bundle",
     price: 26.99,
-    description: "Includes 6 Temporal Forces booster packs for even more pulls.",
+    description:
+      "Includes 6 Temporal Forces booster packs for even more pulls.",
     img: "img/temporal-forces-booster-bundle.png",
     alt: "Temporal Forces booster bundle",
     inStock: true,
@@ -30,7 +32,8 @@ const items = [
   {
     name: "Temporal Forces Build & Battle Box",
     price: 24.99,
-    description: "Pre-release kit with 4 booster packs and a ready-to-play deck.",
+    description:
+      "Pre-release kit with 4 booster packs and a ready-to-play deck.",
     img: "img/temporal-forces-build-battle.png",
     alt: "Temporal Forces Build & Battle Box",
     inStock: true,
@@ -41,7 +44,8 @@ const items = [
   {
     name: "Paradox Rift Booster Pack",
     price: 4.49,
-    description: "A single booster pack featuring futuristic and ancient Pokémon.",
+    description:
+      "A single booster pack featuring futuristic and ancient Pokémon.",
     img: "img/paradox-rift-booster-pack.png",
     alt: "Paradox Rift booster pack",
     inStock: true,
@@ -59,7 +63,8 @@ const items = [
   {
     name: "Paradox Rift Elite Trainer Box",
     price: 49.99,
-    description: "Comes with 9 booster packs, exclusive sleeves, and accessories.",
+    description:
+      "Comes with 9 booster packs, exclusive sleeves, and accessories.",
     img: "img/paradox-rift-etb.png",
     alt: "Paradox Rift Elite Trainer Box",
     inStock: true,
@@ -68,7 +73,8 @@ const items = [
   {
     name: "Paradox Rift Premium Checklane Blister",
     price: 13.99,
-    description: "Includes 1 booster pack, 3 cards with an evolution line, and a collectible coin.",
+    description:
+      "Includes 1 booster pack, 3 cards with an evolution line, and a collectible coin.",
     img: "img/paradox-rift-blister.png",
     alt: "Paradox Rift checklane blister",
     inStock: true,
@@ -88,7 +94,8 @@ const items = [
   {
     name: "Obsidian Flames Booster Box",
     price: 119.99,
-    description: "A sealed display containing 36 Obsidian Flames booster packs.",
+    description:
+      "A sealed display containing 36 Obsidian Flames booster packs.",
     img: "img/obsidian-flames-booster-box.png",
     alt: "Obsidian Flames booster box",
     inStock: true,
@@ -97,7 +104,8 @@ const items = [
   {
     name: "Obsidian Flames Elite Trainer Box",
     price: 49.99,
-    description: "Comes with 9 booster packs, sleeves, energy cards, and accessories.",
+    description:
+      "Comes with 9 booster packs, sleeves, energy cards, and accessories.",
     img: "img/obsidian-flames-etb.png",
     alt: "Obsidian Flames Elite Trainer Box",
     inStock: true,
@@ -106,7 +114,8 @@ const items = [
   {
     name: "Obsidian Flames Build & Battle Stadium",
     price: 59.99,
-    description: "Includes two Build & Battle Boxes and 11 total booster packs.",
+    description:
+      "Includes two Build & Battle Boxes and 11 total booster packs.",
     img: "img/obsidian-flames-battle-stadium.png",
     alt: "Obsidian Flames Build & Battle Stadium",
     inStock: true,
@@ -117,7 +126,8 @@ const items = [
   {
     name: "Paldea Evolved Booster Pack",
     price: 4.49,
-    description: "A single pack featuring Meowscarada, Skeledirge, and Quaquaval.",
+    description:
+      "A single pack featuring Meowscarada, Skeledirge, and Quaquaval.",
     img: "img/paldea-evolved-booster-pack.png",
     alt: "Paldea Evolved booster pack",
     inStock: true,
@@ -173,7 +183,8 @@ const items = [
   {
     name: "Pokémon 151 Elite Trainer Box",
     price: 54.99,
-    description: "Includes 9 booster packs, sleeves, dice, and an illustrated guidebook.",
+    description:
+      "Includes 9 booster packs, sleeves, dice, and an illustrated guidebook.",
     img: "img/151-etb.png",
     alt: "Pokémon 151 Elite Trainer Box",
     inStock: true,
@@ -190,6 +201,8 @@ const items = [
   },
 ];
 
+const cart = [];
+
 const DOMSelectors = {
   container: document.querySelector(".container"),
   button: document.querySelector(".card-button"),
@@ -204,7 +217,7 @@ const DOMSelectors = {
 function makeCard(card) {
   DOMSelectors.container.insertAdjacentHTML(
     "afterbegin",
-    `<div class="card">
+    `<div class="card" data-title="${card.name}">
             <h2 class="card-title">${card.name}</h2>
             <img class="card-img" src="${card.img}" alt="${card.alt}"/>
             <p class="card-description">${card.description}</p>
@@ -214,9 +227,37 @@ function makeCard(card) {
   );
 }
 
+function addToCart(event) {
+  const buttons = document.querySelectorAll(".card-button");
+  //create array if we need more than forEach
+  const btnArray = Array.from(buttons);
+  console.log(buttons);
+
+  btnArray.forEach((button) => {
+    button.addEventListener("click", function (event) {
+      console.log(event.target.textContent);
+      console.log(event.target.closest(".card").getAttribute("data-title"));
+      if (event.target.closest(".card").getAttribute("data-title")) {
+        cart.push(event.target.closest(".card").getAttribute("data-title"));
+        console.log(cart);
+      }
+    });
+    // find the item in the array that matches the card title
+    // add that item to the cart array
+  });
+}
+
+function filterCategory(category) {
+  const filteredItems = items.filter((item) => item.category === category);
+  console.log(filteredItems);
+  DOMSelectors.container.innerHTML = "";
+  filteredItems.forEach((card) => makeCard(card));
+}
+
 // loop through array and create a card for each object
 items.forEach((card) => makeCard(card));
 
+addToCart();
 /* function inject(album) {
   DOMSelectors.display.insertAdjacentHTML(
     "afterbegin",
