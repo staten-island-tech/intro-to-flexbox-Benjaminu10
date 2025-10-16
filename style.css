@@ -55,6 +55,28 @@ canvas#canvas {
   margin: 5vh 0;
 }
 
+.cart-button {
+  position: fixed;
+  top: 4%;
+  right: 1%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  outline: 0;
+  display: inline-block;
+  font-weight: auto;
+  line-height: 1.5;
+  text-align: center;
+  border: 1px solid transparent;
+  padding: 1%;
+  font-size: 20%;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #ffffff;
+  z-index: 1;
+}
+
 .container {
   display: flex;
   justify-content: space-around;
@@ -147,12 +169,12 @@ canvas#canvas {
   background-color: #0d6efd;
 }
 
-.card-button:hover{
-    color: #fff;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-    transform: scale(1.05);
-  }
+.card-button:hover {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  transform: scale(1.05);
+}
 
 .card-button:active {
   background-color: #0b5ed7;

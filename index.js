@@ -217,7 +217,7 @@ const DOMSelectors = {
 function makeCard(card) {
   DOMSelectors.container.insertAdjacentHTML(
     "afterbegin",
-    `<div class="card" data-title="${card.name}">
+    `<div class="card" data-title="${card.name}" data-catagory="${card.category}">
             <h2 class="card-title">${card.name}</h2>
             <img class="card-img" src="${card.img}" alt="${card.alt}"/>
             <p class="card-description">${card.description}</p>
@@ -237,10 +237,13 @@ function addToCart(event) {
     button.addEventListener("click", function (event) {
       console.log(event.target.textContent);
       console.log(event.target.closest(".card").getAttribute("data-title"));
-      if (event.target.closest(".card").getAttribute("data-title")) {
-        cart.push(event.target.closest(".card").getAttribute("data-title"));
-        console.log(cart);
-      }
+      items.forEach((item) => {
+        if (
+          item.name === event.target.closest(".card").getAttribute("data-title")
+        )
+          cart.push(item);
+      });
+      console.log(cart);
     });
     // find the item in the array that matches the card title
     // add that item to the cart array
