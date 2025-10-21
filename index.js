@@ -202,6 +202,9 @@ const items = [
 ];
 
 const cart = [];
+let totalCost = 0;
+
+// DOM selectors
 
 const DOMSelectors = {
   container: document.querySelector(".container"),
@@ -211,6 +214,8 @@ const DOMSelectors = {
   img: document.querySelector(".card-img"),
   name: document.querySelector(".card-title"),
   alt: document.querySelector(".card-alt"),
+  cart: document.querySelector(".cart"),
+  price: document.querySelector(".total-cost"),
 };
 
 // create card function
@@ -227,6 +232,17 @@ function makeCard(card) {
   );
 }
 
+function insertCartItem(card) {
+  DOMSelectors.cart.insertAdjacentHTML(
+    "beforeend",
+    `<div class="cart-item">
+      <h2 class="card-title">${card.name}</h2>
+      <img class="card-img" src="${card.img}" alt="${card.alt}"/>
+      <p class="card-price">$${card.price}</p>
+    </div>`
+  );
+}
+
 function addToCart(event) {
   const buttons = document.querySelectorAll(".card-button");
   //create array if we need more than forEach
@@ -240,8 +256,17 @@ function addToCart(event) {
       items.forEach((item) => {
         if (
           item.name === event.target.closest(".card").getAttribute("data-title")
-        )
+        ) {
+          insertCartItem(item);
           cart.push(item);
+          totalCost += item.price;
+          DOMSelectors.cart.insertAdjacentHTML(
+            "afterbegin",
+            `<h2 class="total-cost">Total Cost: $${totalCost}</h2>`
+          );
+        }
+
+        console.log(totalCost);
       });
       console.log(cart);
     });

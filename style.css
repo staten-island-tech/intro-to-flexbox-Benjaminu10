@@ -171,6 +171,33 @@ canvas#canvas {
   transform: scale(0.95);
 }
 
+.cart {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgba(85, 98, 76, 0.4);
+  box-shadow: 20px 10px 10px rgba(11, 37, 3, 0.3);
+  margin: 9vh 5vw;
+  border-radius: 12px;
+}
+
+.cart-item {
+  width: 22%;
+  height: 450px;
+  background-color: #cebc83;
+  box-shadow: 20px 10px 10px rgba(11, 37, 3, 0.364);
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 12px;
+  border: 3px solid rgb(255, 255, 255, 0.6);
+}
+
 /* 
 #d1d2d5
 #1d1a17 
