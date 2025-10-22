@@ -215,7 +215,7 @@ const DOMSelectors = {
   name: document.querySelector(".card-title"),
   alt: document.querySelector(".card-alt"),
   cart: document.querySelector(".cart"),
-  price: document.querySelector(".total-cost"),
+  cost: document.querySelector(".total-cost"),
 };
 
 // create card function
@@ -243,6 +243,8 @@ function insertCartItem(card) {
   );
 }
 
+const cost = document.querySelectorAll(".total-cost");
+
 function addToCart(event) {
   const buttons = document.querySelectorAll(".card-button");
   //create array if we need more than forEach
@@ -260,10 +262,7 @@ function addToCart(event) {
           insertCartItem(item);
           cart.push(item);
           totalCost += item.price;
-          DOMSelectors.cart.insertAdjacentHTML(
-            "afterbegin",
-            `<h2 class="total-cost">Total Cost: $${totalCost}</h2>`
-          );
+          DOMSelectors.cost.textContent = `Total: $${totalCost.toFixed(2)}`;
         }
 
         console.log(totalCost);
@@ -275,13 +274,26 @@ function addToCart(event) {
   });
 }
 
-function filterCategory(category) {
-  const filteredItems = items.filter((item) => item.category === category);
-  console.log(filteredItems);
-  DOMSelectors.container.innerHTML = "";
-  filteredItems.forEach((card) => makeCard(card));
+function filterByCategory(category) {
+  const display = document.querySelector(".container");
+  const filteredCards = items.filter((card) => card.category === category);
+  display.innerHTML = "";
+  filteredCards.forEach((card) => {
+    display.insertAdjacentHTML(
+      "afterbegin",
+      `<div class="card" data-title="${card.name}" data-catagory="${card.category}">
+            <h2 class="card-title">${card.name}</h2>
+            <img class="card-img" src="${card.img}" alt="${card.alt}"/>
+            <p class="card-description">${card.description}</p>
+            <p class="card-price">$${card.price}</p>
+            <button class="card-button">Add to Cart</button>
+        </div>`
+    );
+  });
+  console.log(filteredCards);
 }
 
+filterByCategory("151");
 // loop through array and create a card for each object
 items.forEach((card) => makeCard(card));
 
