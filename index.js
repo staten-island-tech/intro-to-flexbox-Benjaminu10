@@ -293,9 +293,20 @@ function filterByCategory(category) {
   console.log(filteredCards);
 }
 
-filterByCategory("151");
+function setupFilterButtons() {
+  const filterButtons = document.querySelectorAll(".filter-button");
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", function (event) {
+      console.log(event.target.textContent);
+      filterByCategory(event.target.textContent);
+      addToCart();
+    });
+  });
+}
+
 // loop through array and create a card for each object
 items.forEach((card) => makeCard(card));
+setupFilterButtons();
 
 addToCart();
 /* function inject(album) {
