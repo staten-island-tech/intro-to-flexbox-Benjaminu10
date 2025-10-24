@@ -275,8 +275,14 @@ function addToCart(event) {
 }
 
 function filterByCategory(category) {
+
   const display = document.querySelector(".container");
   const filteredCards = items.filter((card) => card.category === category);
+  if (category === "All") {
+    display.innerHTML = "";
+    items.forEach((card) => makeCard(card));
+    return
+  }
   display.innerHTML = "";
   filteredCards.forEach((card) => {
     display.insertAdjacentHTML(

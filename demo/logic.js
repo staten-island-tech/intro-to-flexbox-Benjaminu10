@@ -18,6 +18,8 @@ function checkCart(prod) {
   }
 }
 
+
+
 checkCart(prod);
 console.log(cart);
 checkCart(prod);

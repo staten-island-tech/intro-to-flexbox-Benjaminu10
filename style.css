@@ -171,6 +171,43 @@ canvas#canvas {
   transform: scale(0.95);
 }
 
+.filter-button {
+  align-self: flex-start;
+  height: 17%;
+  width: 40%;
+  cursor: pointer;
+  outline: 0;
+  display: inline-block;
+  font-weight: auto;
+  line-height: 1.5;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 1%;
+  margin-left: 5%;
+  margin-top: 1%;
+  font-size: 20%;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #ffffff;
+  border-color: #0d6efd;
+  background-color: #0d6efd;
+}
+
+.filter-button:hover {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  transform: scale(1.05);
+}
+
+.filter-button:active {
+  background-color: #0b5ed7;
+  transform: scale(0.95);
+}
+
+
 .cart {
   display: flex;
   justify-content: space-around;
