@@ -155,14 +155,14 @@ canvas#canvas {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   color: #ffffff;
-  border-color: #0d6efd;
+  border-color: #02122b;
   background-color: #0d6efd;
 }
 
 .card-button:hover {
   color: #fff;
   background-color: #0d6efd;
-  border-color: #0d6efd;
+  border-color: #00060e;
   transform: scale(1.05);
 }
 
@@ -206,7 +206,6 @@ canvas#canvas {
   background-color: #0b5ed7;
   transform: scale(0.95);
 }
-
 
 .cart {
   display: flex;
